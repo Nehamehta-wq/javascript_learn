@@ -29,3 +29,23 @@ let logIn=Number(loggedin)
 // 0 => false
 // "" => false
 // "hye" => true
+
+
+
+// 1. Implicit Type Conversion (Automatic)
+// JavaScript automatically converts data types when needed.
+
+// String Conversion
+// let result = "5" + 2;
+// console.log(result);
+// Output"52"
+// 👉 2 is automatically converted to a string.
+
+// Boolean Conversion
+// console.log(true + 1);
+// Output: 2
+// 👉 true becomes 1.
+
+
+
+// 2. Explicit Type Conversion (Manual)
