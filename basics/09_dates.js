@@ -21,6 +21,12 @@ console.log(newDate);
 console.log(newDate.getMonth() + 1);
 console.log(newDate.getDay());
 
+const timestamp = Date.now();
+const date = new Date(timestamp);
+console.log(date);
+
+
+
 // `${newDate.getDay()} and the time `
 
 newDate.toLocaleString('default', {
