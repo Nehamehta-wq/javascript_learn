@@ -28,3 +28,26 @@ const students = [
 ];
 
 console.table(students);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Feature	var	let	const
+// Scope	        Function Scope	      Block Scope	             Block Scope
+// Redeclare	     ✅ Yes	             ❌ No	                   ❌ No
+// Reassign	        ✅ Yes	             ✅ Yes	                 ❌ No
+// Preferred	     ❌ No	               ✅ Yes	               ✅ Yes

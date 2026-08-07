@@ -102,4 +102,20 @@ const users = [
 
 
 
-console.log(tinder.hasOwnProperty("id")); // true
+// console.log(tinder.hasOwnProperty("id")); // true
+
+const course = {
+    coursename: "JavaScript",
+    price: 999,
+    courseInstructor: "Hitesh"
+};
+
+// console.log(course.courseInstructor);
+const { courseInstructor } = course;
+// console.log(courseInstructor);
+
+// const { courseInstructor: instructor } = course; // we can also rename the variable while destructuring
+// console.log(instructor);
+
+
+
