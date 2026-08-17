@@ -1,0 +1,38 @@
+The DOM (Document Object Model) is a programming interface that represents an HTML or XML document as a tree of objects. 
+JavaScript uses the DOM to access and modify the content, structure, and style of a web page.
+
+Example HTML:
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>My Page</title>
+                        </head>
+                        <body>
+                            <h1 id="heading">Welcome</h1>
+                            <p>This is a paragraph.</p>
+                            <button>Click Me</button>
+                        </body>
+                        </html>
+
+DOM Tree:
+                        Document
+                        │
+                        └── html
+                            ├── head
+                            │   └── title
+                            └── body
+                                ├── h1
+                                ├── p
+                                └── button
+
+Each HTML element becomes an object (node) that JavaScript can manipulate.
+
+=================================================================================================================================
+=================================================================================================================================
+=================================================================================================================================
+=================================================================================================================================
+
+
+
+
+
