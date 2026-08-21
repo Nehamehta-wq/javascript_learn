@@ -1,3 +1,4 @@
+                                                **DOCUMENT OBJECT MODEL (DOM)**
 The DOM (Document Object Model) is a programming interface that represents an HTML or XML document as a tree of objects. 
 JavaScript uses the DOM to access and modify the content, structure, and style of a web page.
 
@@ -31,8 +32,217 @@ Each HTML element becomes an object (node) that JavaScript can manipulate.
 =================================================================================================================================
 =================================================================================================================================
 =================================================================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+
+        <ul>
+            <li class="list-item">one</li>
+        </ul>
+    </div>
+</body>
+</html>
 
 
 
+
+
+
+
+document.getElementById()
+ID se ek element select karta hai.
+
+example:
+                   => <h1 id="title">Hello</h1>
+
+                   => const heading = document.getElementById("title");
+
+                   => console.log(heading); // <h1 id="title">Hello</h1>
+
+
+document.getElementById("title").id
+                    Output:
+                    "title"
+                    Kyunki id ek direct DOM property hai.
+
+
+document.getElementById("title").class
+                    Output:
+                    undefined
+                    Kyunki JavaScript DOM mein class naam ki property nahi hoti. 
+                    class JavaScript keyword bhi hai, isliye browser className use karta hai.
+document.getElementById("title").className
+                    Output:
+                    "heading"
+
+
+==========================================================================================================================
+
+                                Modern aur better approach:
+const title = document.getElementById("title");
+
+title.classList.add("active");          // class add
+title.classList.remove("heading");      // class remove
+title.classList.toggle("dark");         // on/off class
+title.classList.contains("active");     // true/false
+
+
+
+            Attribute ko generic tareeke se read karne ke liye:
+            title.getAttribute("id");       // "title"
+            title.getAttribute("class");    // "heading"
+            title.getAttribute("data-id");  // null, agar attribute exist nahi karta
+
+
+
+Attribute set/remove:
+title.setAttribute("title", "Main heading");
+title.setAttribute("class", "heading active");
+title.removeAttribute("title");
+
+
+
+            Difference yaad rakho:
+            title.id                 // direct property
+            title.className          // class ki string
+            title.classList          // classes manipulate karne ka object
+            title.getAttribute("class") // HTML attribute ki value
+
+
+
+Most practical usage:
+const title = document.querySelector("#title");
+
+
+
+            title.textContent = "Updated heading";
+            title.style.color = "orange";
+            title.classList.add("highlight");
+            title.setAttribute("data-topic", "dom");
+
+
+
+getAttribute() ko image mein aage aise complete karna hai:
+document.getElementById("title").getAttribute("class")
+// "heading"
+
+=================================================================================================================
+
+Inline CSS apply:
+title.style.color = "orange";
+title.style.backgroundColor = "black";
+title.style.padding = "10px";
+title.style.fontSize = "40px";
+
+
+                            CSS property mein hyphen ho toh camelCase use hota hai:
+                            title.style.backgroundColor = "yellow"; // background-color
+                            title.style.fontSize = "32px";          // font-size
+                            title.style.marginTop = "20px";         // margin-top
+
+
+
+Image wale heading ke liye:
+document.getElementById("title").style.color = "red";
+
+
+
+Better approach: CSS class add/remove karo.
+.highlight {
+color: orange;
+background-color: #222;
+padding: 10px;
+border-radius: 8px;
+}--------------------
+          |          
+          |     title.classList.add("highlight");
+          |-->  title.classList.remove("highlight");
+                title.classList.toggle("highlight");
+                style inline CSS ko control karta hai, while classList reusable CSS styling ke liye better hota hai.
+
+
+
+
+================================================================================================================================
+
+textContent element ke andar ka plain text read ya change karta hai.
+
+const title = document.getElementById("title");
+console.log(title.textContent); // "DOM learning on Chai aur code"
+
+
+
+
+Text change karne ke liye:
+                title.textContent = "Hello JavaScript";
+
+
+
+
+Agar HTML tags bhi text ki tarah dikhane hain:
+                title.textContent = "<span>Hello</span>";         
+                Page par literally yeh dikhega:
+                        <span>Hello</span>
+                        textContent safe hai, kyunki HTML parse nahi karta.
+
+
+
+
+Quick comparison:
+title.textContent  // plain text
+title.innerHTML    // HTML tags ke saath content
+title.innerText    // visible text, CSS visibility consider karta hai
+            Example:
+            <h1 id="title">
+            Hello <span style="display:none">Hidden</span>
+            </h1>
+            title.textContent; // "Hello Hidden"
+            title.innerText;   // "Hello"
+            title.innerHTML;   // 'Hello <span style="display:none">Hidden</span>'
+
+
+==============================================================================================================================
+
+
+getElementsByClassName() class name se multiple elements select karta hai.
+
+<p class="item">Apple</p>
+<p class="item">Mango</p>
+<p class="item">Banana</p>
+
+const items = document.getElementsByClassName("item");
+console.log(items);
+
+                Yeh HTMLCollection return karta hai:
+                    HTMLCollection(3) [p.item, p.item, p.item]
+                
+
+
+
+Individual element access:
+            console.log(items[0].textContent); // Apple
+            console.log(items[1].textContent); // Mango
+            
+Loop karne ke liye pehle array banana best hai:
+            Array.from(items).forEach((item) => {
+            item.style.color = "orange";
+            });
+
+
+==========================================================================================================================
 
 
