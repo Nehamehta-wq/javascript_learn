@@ -1,0 +1,227 @@
+----------------------------1. querySelector()--------------------------------------------
+const myul = document.querySelector('ul');
+const turnGreen = myul.querySelector('li');
+
+👉 querySelector() sirf first matching element deta hai.
+Agar HTML hai:
+<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>
+
+
+To:
+myul.querySelector('li')
+sirf pehla <li> → one return karega.
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+-------------------------------2. innerText---------------------------------------------------
+turnGreen.innerText = "five";
+Isse first <li> ka text one → five ho jayega.
+
+Result:
+<ul>
+    <li>five</li>
+    <li>two</li>
+    <li>three</li>
+</ul>
+
+
+Aur agar:
+turnGreen.style.backgroundColor = "green";
+to first <li> ka background green ho jayega. 🟢
+
+
+
+
+Bas itna yaad rakho:
+querySelector() → element pakdo
+innerText → andar ka text change karo
+style → CSS change karo
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------querySelectorAll()-----------------------------------------------
+querySelectorAll() → saare matching elements deta hai. 👇
+
+HTML:
+<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>
+
+const myul = document.querySelector('ul');
+const allLi = myul.querySelectorAll('li');
+
+Ab allLi ke andar 3 <li> elements hain:
+                                    allLi
+                                    ├── li → one
+                                    ├── li → two
+                                    └── li → three
+Sabka background green karna
+                            allLi.forEach(function(li){
+                                li.style.backgroundColor = "green";
+                            });
+
+Difference 🔥
+document.querySelector('li') ➡️ First <li>
+
+document.querySelectorAll('li') ➡️ All <li>
+
+
+⚠️ Important: querySelectorAll() se directly ye nahi kar sakte:
+allLi.style.backgroundColor = "green"; // ❌
+Kyuki allLi ek NodeList hai, ek single element nahi. Isliye forEach() se ek-ek element par apply karte hain.
+
+
+Ya sab par operation:
+allLi.forEach((li) => {
+    li.style.backgroundColor = "green";
+});
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------getElementsByClassName()-----------------------------------------------------------
+Ye bhi multiple elements ko select karne ke liye use hota hai.
+
+Suppose HTML:
+<h2 class="heading">One</h2>
+<h2 class="heading">Two</h2>
+<h2 class="heading">Three</h2>
+
+
+JavaScript:
+const headings = document.getElementsByClassName("heading");
+
+Ab headings mein saare elements aa jayenge:
+                                        HTMLCollection(3)
+                                        0 → One
+                                        1 → Two
+                                        2 → Three
+
+Access kaise karenge?
+headings[0] ➡️ First heading
+
+headings[1] ➡️ Second heading
+
+headings[2] ➡️ Third heading
+
+Sabka color change:
+for(let i = 0; i < headings.length; i++){
+    headings[i].style.color = "red";
+}
+
+
+
+
+
+⚠️ Important difference
+Method	                      Return	                Select
+querySelector()               Element	                First
+querySelectorAll()	          NodeList	                All
+getElementsByClassName()	  HTMLCollection	        All
+
+
+Example:
+
+Class ke naam mein . nahi lagana ❌
+document.getElementsByClassName(".heading") // ❌
+
+Whereas querySelector mein . lagta hai:
+document.querySelectorAll(".heading") // ✅
+
+Yaad rakho:
+getElementsByClassName("className") → class ke basis par saare elements 📦
+
+
+
+
+
+
+
+
+Class name ke basis par saare matching elements ko select karta hai.
+Ye HTMLCollection return karta hai.
+Class name dete time . nahi lagate.
+
+const elements = document.getElementsByClassName("list-item");
+
+
+Example:
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+
+const elements = document.getElementsByClassName("list-item");
+
+
+Output:
+HTMLCollection(3)
+Individual element access
+                        elements[0]  // one
+                        elements[1]  // two
+                        elements[2]  // three
+                        HTMLCollection → Array
+
+getElementsByClassName() se HTMLCollection milta hai, actual Array nahi.
+
+const arr = Array.from(elements); ===> Ab arr ek actual Array hai, isliye:
+
+arr.forEach(function(element){
+    element.style.color = "orange";
+});
+--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -245,4 +245,100 @@ Loop karne ke liye pehle array banana best hai:
 
 ==========================================================================================================================
 
+querySelector() is a JavaScript method used to select the first HTML element that matches a specified CSS selector.
+querySelector() sirf first matching element return karta hai.
+
+
+Syntax
+document.querySelector(selector);
+
+Examples
+1. ID se element select karna
+        HTML
+        <h1 id="heading">Hello JavaScript</h1>
+
+        JavaScript
+        let element = document.querySelector("#heading");
+
+        console.log(element);
+        console.log(element.textContent);
+
+                                Output
+                                <h1 id="heading">Hello JavaScript</h1>
+
+                                Hello JavaScript
+
+
+2. Class se element select karna
+        HTML
+        <p class="message">Hello</p>
+        <p class="message">Welcome</p>
+        <p class="message">JavaScript</p>
+
+        JavaScript
+        let element = document.querySelector(".message");
+
+        console.log(element);
+        console.log(element.textContent);
+
+                                Output
+                                <p class="message">Hello</p>
+
+                                Hello
+
+
+
+3. Tag name se select karna
+        HTML
+        <h1>Heading 1</h1>
+        <h1>Heading 2</h1>
+
+        JavaScript
+        let heading = document.querySelector("h1");
+
+        console.log(heading);
+        console.log(heading.textContent);
+
+                                Output
+                                <h1>Heading 1</h1>
+                                Heading 1
+
+
+
+4. ID + Class : CSS ki tarah multiple conditions bhi de sakte ho.
+
+        HTML
+        <p id="para" class="text">Hello World</p>
+
+        JavaScript
+        let element = document.querySelector("#para.text");
+
+        console.log(element.textContent);
+
+                                Output
+                                Hello World
+
+
+
+
+5. Nested elements
+
+HTML
+        <div class="container">
+            <p>Hello</p>
+            <p>Welcome</p>
+        </div>
+
+        <div class="box">
+            <p>JavaScript</p>
+        </div>
+
+
+        let element = document.querySelector(".container p");
+        console.log(element.textContent);
+
+        
+                                    Output
+                                    Hello                                
+
 
