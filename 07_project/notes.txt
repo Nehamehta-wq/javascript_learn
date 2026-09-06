@@ -1,0 +1,241 @@
+Markdown Syntaxes 📒
+1. Headings
+
+Use # before text.
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+More # → smaller heading.
+
+
+
+
+
+
+
+
+2. Bold
+**This is bold**
+
+Output:
+
+This is bold
+
+
+
+3. Italic
+*This is italic*
+
+Output:
+
+This is italic
+
+
+
+
+
+
+4. Bold + Italic
+***This is bold and italic***
+
+Output:
+
+This is bold and italic
+
+
+
+
+
+
+5. Bullet List
+- JavaScript
+- HTML
+- CSS
+
+Output:
+
+JavaScript
+HTML
+CSS
+
+You can also use:
+
+* JavaScript
+* HTML
+* CSS
+
+
+
+
+
+6. Numbered List
+1. HTML
+2. CSS
+3. JavaScript
+
+Output:
+
+HTML
+CSS
+JavaScript
+
+
+
+
+
+
+7. Inline Code
+
+Code ko backtick ` ke andar likho:
+
+Use `console.log()` to print output.
+
+Output:
+
+Use console.log() to print output.
+
+
+
+
+
+
+
+
+8. Code Block ⭐
+
+Triple backticks use karo:
+
+```javascript
+const name = "Neha";
+console.log(name);
+```
+
+Output:
+
+const name = "Neha";
+console.log(name);
+
+Language specify kar sakte ho:
+
+```javascript
+```java
+```html
+```css
+
+
+
+
+
+
+
+
+9. Link
+
+Syntax:
+
+[Google](https://www.google.com)
+
+Format:
+
+[Display Text](URL)
+
+
+
+
+
+
+
+
+
+
+10. Image
+
+Syntax:
+
+![Image description](image-url)
+
+Format:
+
+![alt text](image URL)
+11. Blockquote
+
+> use karo:
+
+> DOM stands for Document Object Model.
+
+Output:
+
+DOM stands for Document Object Model.
+
+Multiple lines:
+
+> This is line one.
+> This is line two.
+
+
+
+
+
+
+
+
+
+12. Horizontal Line
+---
+
+or:
+
+***
+
+Output:
+
+
+
+
+
+
+13. Table ⭐
+| Name | Age |
+|------|-----|
+| Neha | 21  |
+| Rahul | 22 |
+
+Output:
+
+Name	Age
+Neha	21
+Rahul	22
+14. Checkbox / Task List
+- [x] HTML
+- [x] CSS
+- [ ] JavaScript
+- [ ] React
+
+Output:
+
+ HTML
+ CSS
+ JavaScript
+ React
+
+
+
+
+
+
+
+
+
+
+
+15. Strikethrough
+~~This is deleted~~
+
+Output:
+
+This is deleted
