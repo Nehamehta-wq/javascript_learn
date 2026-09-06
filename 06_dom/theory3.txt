@@ -1,0 +1,185 @@
+1️⃣ Edit / Modify Element
+Edit ka matlab: Existing HTML element ko JavaScript se change karna.
+
+Flow:
+Select Element
+      ↓
+Access Element
+      ↓
+Modify / Edit
+      ↓
+Updated DOM
+      ↓
+Updated Webpage
+
+
+A. Text Edit karna
+innerText
+const heading = document.querySelector("h1");
+heading.innerText = "Hello JavaScript";
+
+Before: <h1>Hello</h1>
+
+After: <h1>Hello JavaScript</h1>
+
+➡️ Element ke visible text ko change karta hai.
+
+
+
+B. HTML Edit karna
+innerHTML
+const div = document.querySelector(".box");
+div.innerHTML = "<h2>Hello</h2>";
+
+Before:
+        <div class="box">
+            Old Text
+        </div>
+
+After:
+        <div class="box">
+            <h2>Hello</h2>
+        </div>
+
+➡️ innerHTML ke through HTML content bhi add/change kar sakte hain.
+⚠️ User-provided/untrusted text ke saath innerHTML carefully use karna chahiye.
+
+
+
+
+C. CSS Edit karna
+const heading = document.querySelector("h1");
+heading.style.color = "orange";
+heading.style.backgroundColor = "black";
+
+➡️ JavaScript se CSS change kar sakte hain.
+
+
+
+
+
+
+D. Attribute Edit karna
+setAttribute()
+const link = document.querySelector("a");
+
+link.setAttribute("href", "https://example.com");
+
+➡️ Existing attribute ko add/change karta hai.
+
+Example:
+<a href="old.com">Click</a>
+
+After: <a href="https://example.com">Click</a>
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+2️⃣ Remove Element 🗑️
+
+Remove ka matlab: Existing element ko DOM se delete/hata dena.
+
+
+Modern method ⭐
+const element = document.querySelector(".box");
+element.remove();
+
+Flow:
+Select Element
+      ↓
+element.remove()
+      ↓
+Element DOM se remove
+      ↓
+Webpage update
+
+
+
+Example
+HTML:
+        <div class="box">
+            Hello
+        </div>
+
+
+JavaScript:
+const box = document.querySelector(".box");
+box.remove();
+
+
+
+Result:
+Before:
+┌──────────────┐
+│    Hello     │
+└──────────────┘
+
+
+       ↓ remove()
+
+
+After:
+   Nothing
+⭐ Parent se child ko remove karna
+
+
+
+Ek old/common method:
+parent.removeChild(child);
+
+Example:
+const parent = document.querySelector(".parent");
+const child = document.querySelector(".day");
+parent.removeChild(child);
+
+
+
+Flow:
+Parent
+  ↓
+Child ko select karo
+  ↓
+parent.removeChild(child)
+  ↓
+Child removed
+
+
+
+Difference
+element.remove();
+➡️ Element khud ko remove karta hai.
+
+
+parent.removeChild(child);
+➡️ Parent, apne child ko remove karta hai.
+
+
+
+
+
+🔥 Complete Notes Flow
+             DOM MANIPULATION
+                    ↓
+          Existing Element
+                    ↓
+          ┌─────────┴─────────┐
+          ↓                   ↓
+        EDIT                REMOVE
+          ↓                   ↓
+   ┌──────┼──────┐       element.remove()
+   ↓      ↓      ↓              ↓
+ Text    HTML    CSS        DOM se remove
+   ↓      ↓      ↓              ↓
+innerText innerHTML style    Webpage update
+
+
