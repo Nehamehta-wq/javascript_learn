@@ -27,8 +27,6 @@ JavaScript ko hum bolte hain:
 
 Iske liye hum use karte hain:
 
-```javascript
-
 **addEventListener()**
 
 Example:
