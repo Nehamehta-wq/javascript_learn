@@ -18,7 +18,8 @@ Simple language mein:
 
 ---
 
-# 1. Event Listener kya hota hai?
+
+## 1. Event Listener kya hota hai?
 
 JavaScript ko hum bolte hain:
 
@@ -27,7 +28,9 @@ JavaScript ko hum bolte hain:
 Iske liye hum use karte hain:
 
 ```javascript
-addEventListener()
+
+**addEventListener()**
+
 Example:
 <button id="btn">Click Me</button>
 
@@ -38,43 +41,55 @@ button.addEventListener("click", function () {
     alert("Button clicked!");
 });
 </script>
-Isko line-by-line samjho:
+
+
+**Isko line-by-line samjho:**
 button.addEventListener("click", function () {
 
-Meaning:
 
-button ko observe karo, aur agar click ho toh function chalao.
 
-alert("Button clicked!");
+**Meaning:**
+-button ko observe karo, aur agar click ho toh function chalao.
+-alert("Button clicked!");
+-Click hone ke baad ye execute hoga.
 
-Click hone ke baad ye execute hoga.
+
 
 Flow:
-User button par click karta hai
-          ↓
-click event generate hota hai
-          ↓
-addEventListener usse detect karta hai
-          ↓
-function execute hota hai
-          ↓
-Alert show hota hai
-2. Common Events
+            User button par click karta hai
+                    ↓
+            click event generate hota hai
+                    ↓
+            addEventListener usse detect karta hai
+                    ↓
+            function execute hota hai
+                    ↓
+            Alert show hota hai
+
+
+---
+
+## 2. Common Events
+
 🖱️ Mouse Events
-click
-dblclick
-mouseover
-mouseout
-mousedown
-mouseup
-mousemove
-Example:
+-click
+-dblclick
+-mouseover
+-mouseout
+-mousedown
+-mouseup
+-mousemove
+
+**Example:**
+
 button.addEventListener("click", function () {
     console.log("Clicked");
 });
-⌨️ Keyboard Events
-keydown
-keyup
+
+**⌨️ Keyboard Events**
+-keydown
+-keyup
+
 Example:
 document.addEventListener("keydown", function () {
     console.log("Key pressed");
@@ -82,11 +97,13 @@ document.addEventListener("keydown", function () {
 
 Jab bhi keyboard ki key press hogi, function chalega.
 
-📝 Input Events
-input
-change
-focus
-blur
+
+**📝 Input Events**
+-input
+-change
+-focus
+-blur
+
 Example:
 const input = document.querySelector("#name");
 
@@ -96,13 +113,19 @@ input.addEventListener("input", function () {
 
 User jaise-jaise type karega, input event fire hoga.
 
-📋 Form Events
-submit
+
+**📋 Form Events**
+-submit
+
 Example:
 form.addEventListener("submit", function () {
     console.log("Form submitted");
 });
-3. Event Object kya hota hai?
+
+
+---
+
+## 3. Event Object kya hota hai?
 
 Jab event hota hai, JavaScript automatically ek event object provide karta hai.
 
@@ -110,48 +133,53 @@ button.addEventListener("click", function (event) {
     console.log(event);
 });
 
-Yahan:
 
-event
+**Yahan:**
+event : mein event ke baare mein information hoti hai.
 
-mein event ke baare mein information hoti hai.
 
 event.target
 button.addEventListener("click", function (event) {
     console.log(event.target);
 });
 
-event.target batata hai:
 
+**event.target batata hai:**
 Exactly kis element par event hua?
+
 
 Agar button click kiya:
 
 event.target
       ↓
 <button>
-4. Keyboard Event ka Example
+
+
+---
+
+
+## 4. Keyboard Event ka Example
+
 document.addEventListener("keydown", function (event) {
     console.log(event.key);
 });
 
-Agar tum A press karoge:
+Agar tum A press karoge: A
 
-A
+Agar Enter press karoge: Enter
 
-Agar Enter press karoge:
+Agar Space press karoge: Space
 
-Enter
 
-Agar Space press karoge:
+---
 
-Space
-5. preventDefault() kya karta hai?
+
+## 5. preventDefault() kya karta hai?
 
 Browser ke kuch elements ka default behavior hota hai.
 
-Example:
 
+**Example:**
 Form submit karne par page reload ho sakta hai.
 
 form.addEventListener("submit", function (event) {
@@ -160,11 +188,13 @@ form.addEventListener("submit", function (event) {
     console.log("Form submitted");
 });
 
-preventDefault() ka matlab:
 
+**preventDefault() ka matlab:**
 Browser ka default kaam rok do.
 
-Flow:
+
+**Flow:**
+
 User → Submit button
           ↓
      submit event
@@ -174,9 +204,13 @@ User → Submit button
 Default browser action STOP
           ↓
 Apna JavaScript code execute
-⭐ Sabse Important Concept
 
-Events ko abhi ke liye is formula se yaad rakho:
+
+---
+
+## ⭐ Sabse Important Concept
+
+**Events ko abhi ke liye is formula se yaad rakho:**
 
 EVENT
   ↓
@@ -189,12 +223,16 @@ Action ko listen/observe karta hai
 EVENT HANDLER
   ↓
 Action hone par kya karna hai
-Example:
+
+
+**Example:**
+
 button.addEventListener("click", function () {
     console.log("Hello");
 });
 
-Yahan:
+
+**Yahan:**
 
 click
   ↓
@@ -207,20 +245,3 @@ EVENT LISTENER
 function()
   ↓
 EVENT HANDLER
-🧠 Real-Life Analogy
-
-Socho doorbell hai:
-
-Koi bell bajata hai
-       ↓
-      EVENT
-
-Bell system sunta hai
-       ↓
- EVENT LISTENER
-
-Tum door kholte ho
-       ↓
- EVENT HANDLER
-
-JavaScript events bhi isi idea par kaam karte hain.
