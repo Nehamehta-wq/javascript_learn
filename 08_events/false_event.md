@@ -106,6 +106,8 @@ Matlab event pehle **upar se neeche** jaata hai, phir **neeche se upar** aata ha
 
 # 1. `false` → Bubbling
 
+Target element par event pahunchne ke baad event wapas parent ki taraf upar jaata hai.
+
 Example:
 
 ```javascript
@@ -135,6 +137,8 @@ Kyuki `false` ka matlab hai listener **Bubbling phase** mein execute hoga.
 ---
 
 # 2. `true` → Capturing
+
+***Capturing ka matlab:*** event parent se hote hue target element ki taraf jaata hai.
 
 Agar hum likhein:
 
