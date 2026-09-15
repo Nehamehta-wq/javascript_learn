@@ -17,6 +17,13 @@
 
     const intervalId = setInterval(sayDate, 1000, "hi")
 
-    clearInterval(intervalId)
+    //clearInterval(intervalId)
+    document.querySelector("#start").addEventListener("click", function(){
+    intervalId = setInterval(sayDate, 1000, "hi");
+    });
+
+    document.querySelector("#stop").addEventListener("click", function(){
+    clearInterval(intervalId);
+    });
 </script>
 </html>
