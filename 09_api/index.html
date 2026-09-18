@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Card</title>
+
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #card {
+            width: 300px;
+            background-color: white;
+            color: black;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <button id="getUser">
+            Get GitHub User
+        </button>
+
+        <div id="card">
+
+            <img id="avatar" src="" alt="Profile">
+
+            <h2 id="name"></h2>
+
+            <p id="username"></p>
+
+            <p id="bio"></p>
+
+            <p>
+                Followers:
+                <span id="followers"></span>
+            </p>
+
+            <p>
+                Public Repositories:
+                <span id="repos"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const requestUrl =
+            'https://api.github.com/users/hiteshchoudhary';
+
+        const button = document.querySelector('#getUser');
+
+        const card = document.querySelector('#card');
+
+        const avatar = document.querySelector('#avatar');
+        const name = document.querySelector('#name');
+        const username = document.querySelector('#username');
+        const bio = document.querySelector('#bio');
+        const followers = document.querySelector('#followers');
+        const repos = document.querySelector('#repos');
+
+
+        button.addEventListener('click', function () {
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', requestUrl);
+
+            xhr.onreadystatechange = function () {
+
+                if (xhr.readyState === 4) {
+
+                    const data = JSON.parse(this.responseText);
+
+                    console.log(data);
+
+                    avatar.src = data.avatar_url;
+
+                    name.innerHTML = data.name;
+
+                    username.innerHTML = '@' + data.login;
+
+                    bio.innerHTML = data.bio;
+
+                    followers.innerHTML = data.followers;
+
+                    repos.innerHTML = data.public_repos;
+
+                    card.style.display = 'block';
+                }
+            };
+
+            xhr.send();
+        });
+
+    </script>
+
+</body>
+</html>
